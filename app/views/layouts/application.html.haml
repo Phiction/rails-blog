@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %title Blog
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+
+    .navbar.navbr-default.navbar-static-top
+      .container
+        .navbar-header
+        
+          %a.navbar-brand(href="#") Blog
+        
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to "New Post", new_post_path
+          %li= link_to "All Posts", posts_path
+          - if current_user
+            %li= link_to "Logout", destroy_user_session_url, :method => :delete
+
+
+          - else
+            %li= link_to "Login", new_user_session_path
+    .container
+      - if notice
+        %p.notice.alert.alert-warning= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      = yield

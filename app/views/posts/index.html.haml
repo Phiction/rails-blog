@@ -1,0 +1,24 @@
+%h1 Posts
+
+
+
+- @posts.each do |post|
+  .post
+    %h2
+      = link_to post.title, post
+      -if current_user && current_user.id == post.user.id
+        = link_to 'Edit', edit_post_path(post), :class => 'btn btn-primary float-right'
+
+    %p
+      by
+      = post.user.email
+      \|
+      = post.created_at.strftime("%m/%d/%Y")
+    %p
+      = post.body
+    %p
+
+
+
+%br
+= paginate @posts

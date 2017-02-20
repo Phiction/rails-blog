@@ -1,0 +1,16 @@
+%h1
+  = @post.title
+%p
+  by
+  = @post.user.email
+  \|
+  = @post.created_at.strftime("%m/%d/%Y")
+%p
+  = @post.body
+  
+-if current_user && current_user.id == @post.user.id
+  = link_to 'Edit', edit_post_path(@post), :class => 'btn btn-primary'
+  = link_to 'Destroy', @post, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
+
+
+= link_to 'Back', posts_path
