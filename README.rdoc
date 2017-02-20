@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Assumptions
+Assumes mongodb running on local port 27017 and does not require db authentication.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Notes
+Requirements specified mongoid ~> 6.0.0, however this created a dependency issue (6.0+ requires Rails 5+).  This project uses Rails 4.2.5 and Mongoid 5.2.0
