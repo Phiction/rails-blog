@@ -1,4 +1,4 @@
-== README
+# README
 
 ## Assumptions
 Assumes mongodb running on local port 27017 and does not require db authentication.
