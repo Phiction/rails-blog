@@ -7,6 +7,24 @@
   = @post.created_at.strftime("%m/%d/%Y")
 %p
   = @post.body
+
+- if @post.history_tracks.count > 0
+  %p
+    %b Edits
+    - @post.history_tracks.each do |change|
+
+      %p
+        %b= change.updated_at.strftime("%m/%d/%Y")
+        %br
+        - change.modified.each do |k,v|
+          %p
+            
+            %u= k
+            from: 
+            %em= change.original[k] 
+            to:
+            %em= v
+
   
 -if current_user && current_user.id == @post.user.id
   = link_to 'Edit', edit_post_path(@post), :class => 'btn btn-primary'

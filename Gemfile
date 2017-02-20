@@ -32,6 +32,7 @@ gem 'kaminari-mongoid'
 gem 'bootstrap-sass'
 gem 'devise', '~> 4.2'
 
+
 # gem 'bootstrap_form'
 
 

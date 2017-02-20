@@ -11,6 +11,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @trackers = HistoryTracker.limit(25)
+    @changes = @trackers.first.tracked_changes
+    @edits = @trackers.first.tracked_edits
+
   end
 
   # GET /posts/new
